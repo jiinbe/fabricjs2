@@ -59,6 +59,8 @@ width: auto;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.5/fabric.min.js"></script>
 <script>
 var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
+canvas.selection = false;
+canvas.backgroundColor = 'rgba(27, 31, 36, 0.1)';
 var textX = canvas.width / 2;
 var textY = 400;
 // var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2', 'brightness', 'contrast', 'saturate', 'noise', 'gradient-transparency', 'pixelate', 'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
