@@ -186,7 +186,10 @@ $("#save-btn").on('click', function(){
 window.open(canvas.toDataURL());
 });
 
-
+function selectFile() {
+document.getElementById("imgLoader").click();
+}
+  
 $('#brightness-value').on('change', function(e){
 // console.log("index, prop, value = ", 5, 'brightness', parseInt(this.value, 10))
 applyFilterValue(0, 'brightness', parseInt(this.value, 10));
