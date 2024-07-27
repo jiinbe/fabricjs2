@@ -57,5 +57,134 @@ width: auto;
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.5/fabric.min.js"></script>
+<script>
+var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
+var textX = canvas.width / 2;
+var textY = 400;
+// var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2', 'brightness', 'contrast', 'saturate', 'noise', 'gradient-transparency', 'pixelate', 'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
+var filters = [];
+
+var origW;
+var origH;
+var wH;
+var hW;
+
+var text = new fabric.Text('', { 
+fontFamily: 'Sans-serif',
+fill: '#de3a31',
+textAlign: 'center',
+originX: 'center',
+left: textX, 
+top: textY
+});
+
+canvas.add(text);
+
+fabric.Image.fromURL('mask.png', function(img) {
+  
+img.selectable = false;
+img.evented = false;
+  
+canvas.add(img);
+ 
+},{ crossorigin: 'Anonymous' });
+
+function updateCanvasText(txt){
+// console.log('text');
+text.set({ text: txt });
+canvas.bringToFront(text);
+canvas.renderAll();
+}
+
+function uploadImage(e){
+  
+var reader = new FileReader();
+reader.onload = function (event) {
+
+var imgObj = new Image();
+imgObj.src = event.target.result;
+imgObj.onload = function () {
+var image = new fabric.Image(imgObj);
+      
+image.filters.push(new fabric.Image.filters.Brightness({ brightness: 0 }));
+image.applyFilters(canvas.renderAll.bind(canvas));
+      
+console.log("canvas = ",canvas);
+canvas.add(image);
+canvas.sendToBack(image);
+canvas.setActiveObject(image);
+      
+origW = image.width;
+origH = image.height;
+wH = origW/origH;
+hW = origH/origW;
+      
+image.width = canvas.width;
+image.height = canvas.width *hW ;
+      
+image.originX = "center";
+image.originY = "center";
+image.left = canvas.width / 2;
+image.top = canvas.height / 2;
+// console.log("image b = ",image);
+// console.log("image width = ",image.width);
+// console.log("image height = ",image.height);
+
+}
+
+}
+reader.readAsDataURL(e.target.files[0]);
+}
+
+
+function scaleImage(perc) {
+var obj = canvas.getActiveObject();
+
+var newW = canvas.width * perc;
+  
+obj.width = newW;
+obj.height = newW *hW;
+  
+canvas.renderAll();
+  
+}
+
+function applyFilterValue(index, prop, value) {
+var obj = canvas.getActiveObject();
+  
+if (obj.filters[index]) {
+obj.filters[index][prop] = value;
+obj.applyFilters(canvas.renderAll.bind(canvas));
+}
+}
+
+$('#imgLoader').on('change', function(e){
+  
+uploadImage(e);
+});
+
+$('#textInput').on('keyup', function(e){
+    
+updateCanvasText($(this).val());
+});
+
+$("#save-btn").on('click', function(){
+  
+window.open(canvas.toDataURL());
+});
+
+
+$('#brightness-value').on('change', function(e){
+// console.log("index, prop, value = ", 5, 'brightness', parseInt(this.value, 10))
+applyFilterValue(0, 'brightness', parseInt(this.value, 10));
+});
+
+$('#scale-value').on('change', function(){
+  
+// console.log("scale val = ", parseInt(this.value)/100);
+var perc = parseInt(this.value)/100;
+scaleImage(perc);
+});
+</script>
 </body>
 </html>
