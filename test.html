@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div class="page page-comingsoon">
+<div class="container">
 <h1>Example Fabricjs2</h1>
 <p><canvas id="c" width="300" height="300"></canvas></p>
 <p><input type="file" id="imgLoader" accept="image/*"></p>
@@ -26,9 +26,6 @@
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn">SAVE IMAGE</button>
 </p>
-</div>
-
-<a href="https://www.dreamhost.com/" class="logo" rel="nofollow">DreamHost</a>
 </div>
 <script>
 var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
