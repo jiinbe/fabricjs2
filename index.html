@@ -36,10 +36,20 @@ width: auto;
 
 <body>
 <main>
-<h1>Example Domain</h1>
-<p>This domain is for use in illustrative examples in documents. You may use this
-domain in literature without prior coordination or asking for permission.</p>
-<p><a href="https://www.iana.org/domains/example">More information...</a></p>
+<h1>Example Fabricjs2</h1>
+<canvas id="myCanvas" width="1080" height="1080"></canvas>
+<input type="file" id="imgLoader">
+<label>Brightness:
+<input type="range" id="brightness-value" value="0" min="-255" max="255">
+</label>
+
+<label>Scale:
+<input type="range" id="scale-value" value="100" min="50" max="200">
+</label>
+
+
+<input type="text" id="textInput" placeholder="write something"/>
+<p><button id="save-btn">SAVE IMAGE</button></p>
 </main>
 </body>
 </html>
