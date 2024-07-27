@@ -65,7 +65,6 @@ width: auto;
 var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
 canvas.selection = false;
 canvas.backgroundColor = 'rgba(27, 31, 36, 0.1)';
-//canvas.item(0).hasControls = canvas.item(0).hasBorders = false;
 
 var textX = canvas.width / 2;
 var textY = 400;
@@ -87,6 +86,8 @@ top: textY
 });
 
 canvas.add(text);
+
+canvas.item(0).hasControls = canvas.item(0).hasBorders = false;
 
 fabric.Image.fromURL('mask.png', function(img) {
   
