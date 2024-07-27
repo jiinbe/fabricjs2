@@ -194,10 +194,15 @@ $('#textInput').on('keyup', function(e){
 updateCanvasText($(this).val());
 });
 
-$("#save-btn").on('click', function(){
-  
-window.open(canvas.toDataURL());
+// $("#save-btn").on('click', function(){ 
+// window.open(canvas.toDataURL());
+// });
+
+$("#save-btn").click(function(){
+$("#c").get(0).toBlob(function(blob){
+saveAs(blob, "myIMG.png");
 });
+});		
 
 function selectFile() {
 document.getElementById("imgLoader").click();
