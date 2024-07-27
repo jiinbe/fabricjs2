@@ -149,7 +149,9 @@ console.log("canvas = ",canvas);
 canvas.add(image);
 canvas.sendToBack(image);
 canvas.setActiveObject(image);
-      
+
+canvas.item(0).hasControls = canvas.item(0).hasBorders = false;
+
 origW = image.width;
 origH = image.height;
 wH = origW/origH;
