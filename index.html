@@ -65,6 +65,7 @@ width: auto;
 var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
 canvas.selection = false;
 canvas.backgroundColor = 'rgba(27, 31, 36, 0.1)';
+canvas.item(0).hasControls = canvas.item(0).hasBorders = false;
 var textX = canvas.width / 2;
 var textY = 400;
 var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2', 'brightness', 'contrast', 'saturate', 'noise', 'gradient-transparency', 'pixelate', 'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
