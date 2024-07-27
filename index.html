@@ -219,6 +219,15 @@ saveAs(blob, "myIMG.png");
 function selectFile() {
 document.getElementById("imgLoader").click();
 }
+
+canvas.on({
+'object:moving': function(e) {
+e.target.opacity = 0.5;
+},
+'object:modified': function(e) {
+e.target.opacity = 1;
+}
+});
   
 $('#brightness-value').on('change', function(e){
 // console.log("index, prop, value = ", 5, 'brightness', parseInt(this.value, 10))
