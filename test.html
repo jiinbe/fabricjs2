@@ -8,7 +8,7 @@
 label {
 display: block;
 }
-input,
+input, button
 label {
 margin: 0.4rem 0;
 }
@@ -45,7 +45,7 @@ background-color: #d8dee4;
 
 <body>
 <div class="container">
-<h1>Example Fabricjs2</h1>
+<h2 id=""example-fabricjs2>Example Fabricjs2</h1>
 <p><canvas id="c" width="525" height="531"></canvas></p>
 <p><input type="file" id="imgLoader" accept="image/*"></p>
 <label>Brightness:
@@ -59,6 +59,11 @@ background-color: #d8dee4;
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn">SAVE IMAGE</button>
 </p>
+</div>
+<div id="footer">
+<center>
+<small> Twibbon by <a href="#">Ferry Ayunda</a></small>
+</center>
 </div>
 <script>
 var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
