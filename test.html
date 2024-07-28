@@ -36,10 +36,11 @@ box-shadow: 0 1px 0 rgba(27, 31, 36, 0.1);
 button:hover {
 background-color: #d8dee4;
 }
-.col {
-display:table;
-}
 .row {
+display:table;
+clear: both;
+}
+.col {
 display:table-cell;
 width:48%;
 }
@@ -56,8 +57,8 @@ width:48%;
 <h2 id="example-fabricjs2">Example Fabricjs2</h2>
 <p><canvas id="c" width="525" height="531"></canvas></p>
 <p><input type="file" id="imgLoader" accept="image/*"></p>
-<div class="col">
 <div class="row">
+<div class="col">
 <p><strong>Brightness:</strong></p>
 <!--<input type="range" id="brightness-value" value="0" min="-255" max="255">-->
 <p>
@@ -65,7 +66,7 @@ width:48%;
 <input id="brightness-value" value="0" type="range">
 </p>
 </div>
-<div class="row">
+<div class="col">
 <p><strong>Scale:</strong></p>
 <!--<input type="range" id="scale-value" value="100" min="50" max="200">-->
 <p>
