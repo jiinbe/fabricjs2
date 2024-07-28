@@ -266,5 +266,16 @@ var perc = parseInt(this.value)/100;
 scaleImage(perc);
 });
 </script>
+<script>
+var max = 3,
+min = 0,
+step = 0.1,
+output = $('#output').text(min);
+$("#scale-value")
+.attr({'max': max, 'min':min, 'step': step,'value': String(min)})
+.on('input change', function() {    
+output.text(this.value);
+});
+</script>
 </body>
 </html>
