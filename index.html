@@ -91,20 +91,26 @@ width:48%;
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
 <script>
-$("#btnPreview").click(function (event) {
-    canvas.deactivateAll();
-    var strDataURI = canvas.toDataURL("png");
-    var proporcao = 1;
-    var proporcaoW = 525 / canvas.width;
-    var proporcaoH = 531 / canvas.height;
-    if (proporcaoW < proporcaoH) {
-        proporcao = proporcaoW;
-    } else {
-        proporcao = proporcaoH;
-    }
-    $("#addthis_shareable").width(canvas.width * proporcao).height(canvas.height * proporcao).attr("src", strDataURI);
-    //  $("#imgPreview").width(canvas.width*proporcao).height(canvas.height*proporcao).attr("src", strDataURI);
-    $("#modalPreview").modal("show");
+jQuery("#btnPreview").click(function(){
+if (!fabric.Canvas.supports('toDataURL')) {
+alert('Sorry, your browser is not supported.');
+}
+else {
+canvas.deactivateAll();
+canvas.forEachObject(function(o){
+if(o.get("title") == "||Watermark||"){
+canvas.bringToFront(o);
+}
+});
+window.open(canvas.toDataURL('png'), "");
+canvas.forEachObject(function(o){
+if(o.get("title") == "||Watermark||"){
+canvas.sendToBack(o);
+}
+});
+canvas.renderAll();
+}
+
 });
 </script>
 </body>
