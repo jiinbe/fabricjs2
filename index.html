@@ -116,14 +116,9 @@ navigator.share(shareData);
 </script>
 -->
 <script>
-// document.getElementById("shared").addEventListener("click", () => {
-// alert("share image");
-const btn = document.querySelector(".shared");
-const resultPara = document.querySelector(".result");
-btn.addEventListener("click", async () => {
-  
-const dataUrl = c.toDataURL();
-  
+document.getElementById("shared").addEventListener("click", () => {
+alert("share image");
+const dataUrl = c.toDataURL(); 
 fetch(dataUrl)
 .then(res => res.blob())
 .then(blob => {
@@ -141,15 +136,11 @@ if (navigator.share) {
 navigator.share(
 shareData
 )
-.then(() => // alert("thanks for share")) 
-  resultPara.textContent = "shared successfully";
-.catch(error => // alert("error", error)); 
-  resultPara.textContent = "Error!";
+.then(() => alert("thanks for share")) 
+.catch(error => alert("error", error)); 
 } else {
-// alert('navigator.share not available'); 
-  resultPara.textContent = "navigator.share not available";
+alert('navigator.share not available'); 
 }
-
 })
 });
 </script>
