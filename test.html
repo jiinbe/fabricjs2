@@ -232,6 +232,16 @@ $("#scale-value")
 .on('input change', function() {    
 output.text(this.value);
 });
+
+var max = 200,
+min = 50,
+step = 0.1,
+output = $('#output').text(min);
+$("#brightness-value")
+.attr({'max': max, 'min':min, 'step': step,'value': String(min)})
+.on('input change', function() {    
+output.text(this.value);
+});
 </script>
 </body>
 </html>
