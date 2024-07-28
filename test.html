@@ -79,7 +79,7 @@ width:48%;
 <p><input type="text" id="textInput" placeholder="write something"/></p>
 <p>
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
-<button id="save-btn">SAVE IMAGE</button>
+<button id="save-btn" disabled>SAVE IMAGE</button>
 </p>
 </div>
 <div id="footer">
@@ -218,6 +218,20 @@ function selectFile() {
 document.getElementById("imgLoader").click();
 }
 
+let clickButton = document.getElementById("save-btn");
+let fileInput = document.getElementById("imgLoader");
+fileInput.addEventListener("change", function () {
+         
+// check if the file is selected or not
+if (fileInput.files.length == 0) {
+clickButton.disabled = true;
+clickButton.opacity = 0.3;
+} else {
+clickButton.disabled = false;
+clickButton.style.opacity = 1;
+}
+});
+  
 canvas.on({
 'object:moving': function(e) {
 e.target.opacity = 0.5;
