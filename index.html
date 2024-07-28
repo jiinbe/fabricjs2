@@ -80,6 +80,7 @@ width:48%;
 <p>
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn" disabled>SAVE IMAGE</button>
+<button id="btnPreview" >SHARE</button>
 </p>
 </div>
 <div id="footer">
@@ -89,5 +90,22 @@ width:48%;
 </div>
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
+<script>
+$("#btnPreview").click(function (event) {
+    canvas.deactivateAll();
+    var strDataURI = canvas.toDataURL("png");
+    var proporcao = 1;
+    var proporcaoW = 500 / canvas.width;
+    var proporcaoH = 400 / canvas.height;
+    if (proporcaoW < proporcaoH) {
+        proporcao = proporcaoW;
+    } else {
+        proporcao = proporcaoH;
+    }
+    $("#addthis_shareable").width(canvas.width * proporcao).height(canvas.height * proporcao).attr("src", strDataURI);
+    //  $("#imgPreview").width(canvas.width*proporcao).height(canvas.height*proporcao).attr("src", strDataURI);
+    $("#modalPreview").modal("show");
+});
+</script>
 </body>
 </html>
