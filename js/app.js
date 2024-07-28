@@ -122,7 +122,6 @@ $("#c").get(0).toBlob(function(blob){
 saveAs(blob, "myIMG.png");
 });
 });		
-document.getElementById("save-btn").innerHTML = '<button id="shared">Share</button>';
 
 function selectFile() {
 document.getElementById("imgLoader").click();
