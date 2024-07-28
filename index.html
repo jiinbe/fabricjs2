@@ -80,9 +80,7 @@ width:48%;
 <p>
 <button onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn" disabled>SAVE IMAGE</button>
-<button id="share" type="button" onclick="shareImage(c);">SHARE</button>
 <button id="shared">SHARED</button>
-<p class="result"></p>
 </p>
 </div>
 <div id="footer">
@@ -92,29 +90,6 @@ width:48%;
 </div>
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
-<!--
-<script>
-async function shareImage(c) {
-const response = await fetch(c.toDataURL("image/jpeg", 0.8));
-const blob = await response.blob();
-const filesArray = [
-new File(
-[blob],
-'meme.jpg',
-{
-type: "image/jpeg",
-lastModified: new Date().getTime()
-}
-)
-];
-const shareData = {
-files: filesArray,
-text:"stuff"
-};
-navigator.share(shareData);
-}
-</script>
--->
 <script>
 document.getElementById("shared").addEventListener("click", () => {
 alert("share image");
@@ -126,8 +101,8 @@ fetch(dataUrl)
 const filesArray = [new File([blob], 'image.png', { type: blob.type, lastModified: new Date().getTime() })];
 console.log(filesArray);
 const shareData = {
-title: "HI, THERE 👋👋👋",
-text: "Learn web development on CODEPEN!",
+title: "FREE AND SIMPLE PFP GENERATOR",
+text: "FREE AND SIMPLE PFP GENERATOR",
 url: "https://codepen.io/erossavanka/pen/MWMbzzy",
 files: filesArray
 };
