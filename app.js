@@ -161,3 +161,23 @@ $('#scale-value').on('change', function(){
 var perc = parseInt(this.value)/100;
 scaleImage(perc);
 });
+
+var max = 200,
+min = 50,
+step = 0.1,
+output = $('#output').text(min);
+$("#scale-value")
+.attr({'max': max, 'min':min, 'step': step,'value': String(min)})
+.on('input change', function() {    
+output.text(this.value);
+});
+
+var max = 255,
+min = -255,
+step = 0.1,
+result = $('#result').text(min);
+$("#brightness-value")
+.attr({'max': max, 'min':min, 'step': step,'value': String(min)})
+.on('input change', function() {    
+result.text(this.value);
+});
