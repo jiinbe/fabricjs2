@@ -67,6 +67,7 @@ background-color: #d8dee4;
 <small> Twibbon by <a href="#">Ferry Ayunda</a></small>
 </center>
 </div>
+<span class="bg"></span>
 <script>
 var canvas = new fabric.Canvas('c', { isDrawingMode: false, preserveObjectStacking: true });
 canvas.selection = false;
@@ -216,6 +217,17 @@ $('#scale-value').on('change', function(){
 // console.log("scale val = ", parseInt(this.value)/100);
 var perc = parseInt(this.value)/100;
 scaleImage(perc);
+});
+</script>
+<script>
+var max = 200,
+min = 50,
+step = 100,
+output = $('#output').text(min);
+$("#scale-value")
+.attr({'max': max, 'min':min, 'step': step,'value': String(min)})
+.on('input change', function() {    
+output.text(this.value);
 });
 </script>
 </body>
