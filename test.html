@@ -51,7 +51,7 @@ background-color: #d8dee4;
 <p><input type="file" id="imgLoader" accept="image/*"></p>
 <label>Brightness:
 <!--<input type="range" id="brightness-value" value="0" min="-255" max="255">-->
-<button id="output"></button>
+<button id="result"></button>
 <input id="brightness-value" value="0" type="range">
 </label>
 <label>Scale:
@@ -225,8 +225,8 @@ scaleImage(perc);
 });
 </script>
 <script>
-var max = 200,
-min = 50,
+var max = 255,
+min = -255,
 step = 0.1,
 output = $('#output').text(min);
 $("#scale-value")
@@ -238,11 +238,11 @@ output.text(this.value);
 var max = 255,
 min = -255,
 step = 0.1,
-output = $('#output').text(min);
+result = $('#result').text(min);
 $("#brightness-value")
 .attr({'max': max, 'min':min, 'step': step,'value': String(min)})
 .on('input change', function() {    
-output.text(this.value);
+result.text(this.value);
 });
 </script>
 </body>
