@@ -92,7 +92,8 @@ width:48%;
 <script src="js/bg.js"></script>
 <script>
 async function shareCanvas() {
-const canvasElement = document.getElementById('c);
+// const canvasElement = document.getElementById('c);
+const canvas = await html2canvas(shareTarget.current);
 const dataUrl = canvasElement.toDataURL();
 const blob = await (await fetch(dataUrl)).blob();
 const filesArray = [
