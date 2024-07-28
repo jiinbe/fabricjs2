@@ -115,9 +115,12 @@ navigator.share(shareData);
 </script>
 -->
 <script>
-document.getElementById("shared").addEventListener("click", () => {
-alert("share image");
-
+// document.getElementById("shared").addEventListener("click", () => {
+// alert("share image");
+const btn = document.querySelector(".shared");
+const resultPara = document.querySelector(".result");
+btn.addEventListener("click", async () => {
+  
 const dataUrl = c.toDataURL();
   
 fetch(dataUrl)
