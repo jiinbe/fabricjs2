@@ -90,6 +90,7 @@ width:48%;
 </div>
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
+<!--
 <script>
 async function shareImage(c) {
 const response = await fetch(c.toDataURL("image/jpeg", 0.8));
@@ -110,6 +111,43 @@ text:"stuff"
 };
 navigator.share(shareData);
 }
+</script>
+-->
+<script>
+document.body.removeChild(link);
+delete link;
+});
+
+document.getElementById("share").addEventListener("click", () => {
+console.log("share image");
+
+const dataUrl = c.toDataURL();
+  
+fetch(dataUrl)
+.then(res => res.blob())
+.then(blob => {
+//console.log(blob)
+const filesArray = [new File([blob], 'image.png', { type: blob.type, lastModified: new Date().getTime() })];
+console.log(filesArray);
+const shareData = {
+title: "HI, THERE 👋👋👋",
+text: "Learn web development on CODEPEN!",
+url: "https://codepen.io/erossavanka/pen/MWMbzzy",
+files: filesArray
+};
+console.log(shareData);
+if (navigator.share) {
+navigator.share(
+shareData
+)
+.then(() => console.log("thanks for share"))
+.catch(error => console.log("error", error));
+} else {
+alert('navigator.share not available');
+}
+
+})
+});
 </script>
 </body>
 </html>
