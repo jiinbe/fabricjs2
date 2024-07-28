@@ -181,3 +181,6 @@ $("#brightness-value")
 .on('input change', function() {    
 result.text(this.value);
 });
+
+document.getElementById("save-btn").innerHTML = '
+<button id="shared">Share</button>';
