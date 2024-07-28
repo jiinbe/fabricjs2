@@ -80,7 +80,7 @@ width:48%;
 <p>
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn" disabled>SAVE IMAGE</button>
-<button id="btnPreview" >SHARE</button>
+<button id="save" >SHARE</button>
 </p>
 </div>
 <div id="footer">
@@ -91,26 +91,11 @@ width:48%;
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
 <script>
-jQuery("#btnPreview").click(function(){
-if (!fabric.Canvas.supports('toDataURL')) {
-alert('Sorry, your browser is not supported.');
-}
-else {
-canvas.deactivateAll();
-canvas.forEachObject(function(o){
-if(o.get("title") == "||Watermark||"){
-canvas.bringToFront(o);
-}
-});
-window.open(canvas.toDataURL('png'), "");
-canvas.forEachObject(function(o){
-if(o.get("title") == "||Watermark||"){
-canvas.sendToBack(o);
-}
-});
-canvas.renderAll();
-}
+var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
 
+$('.save').attr({
+    'download': 'YourProduct.png',  /// set filename
+    'href'    : image              /// set data-uri
 });
 </script>
 </body>
