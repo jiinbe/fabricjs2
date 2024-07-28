@@ -81,7 +81,8 @@ width:48%;
 <button onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn" disabled>SAVE IMAGE</button>
 <button id="share" type="button" onclick="shareImage(c);">SHARE</button>
-<button id="shared">SHARED</button>
+<button class="shared" id="shared">SHARED</button>
+<p class="result"></p>
 </p>
 </div>
 <div id="footer">
@@ -140,10 +141,10 @@ if (navigator.share) {
 navigator.share(
 shareData
 )
-.then(() => alert("thanks for share"))
-.catch(error => alert("error", error));
+.then(() => // alert("thanks for share")) resultPara.textContent = "shared successfully";
+.catch(error => // alert("error", error)); resultPara.textContent = "Error!";
 } else {
-alert('navigator.share not available');
+// alert('navigator.share not available'); resultPara.textContent = "navigator.share not available";
 }
 
 })
