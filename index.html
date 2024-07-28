@@ -91,34 +91,25 @@ width:48%;
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
 <script>
-document.getElementById("share").addEventListener("click", () => {
-console.log("share image");
-
-const dataUrl = canvas.toDataURL();
-  
-fetch(dataUrl)
-.then(res => res.blob())
-.then(blob => {
-//console.log(blob)
-const filesArray = [new File([blob], 'wahlkompass.png', { type: blob.type, lastModified: new Date().getTime() })];
-console.log(filesArray);
-const shareData = {
-title: "Sieh dir mein Ergebnis vom STANDARD-Wahlkompass an",
-files: filesArray
-};
-console.log(shareData);
-if (navigator.share) {
-navigator.share(
-shareData
-)
-.then(() => console.log("thanks for share"))
-.catch(error => console.log("error", error));
-} else {
-alert('navigator.share not available');
+async function shareImage(canvas) {
+const response = await fetch(canvas.toDataURL("image/jpeg", 0.8));
+const blob = await response.blob();
+const filesArray = [
+new File(
+[blob],
+'meme.jpg',
+{
+type: "image/jpeg",
+lastModified: new Date().getTime()
 }
-
-})
-});
+)
+];
+const shareData = {
+files: filesArray,
+text:"stuff"
+};
+navigator.share(shareData);
+}
 </script>
 </body>
 </html>
