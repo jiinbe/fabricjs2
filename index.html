@@ -141,10 +141,13 @@ if (navigator.share) {
 navigator.share(
 shareData
 )
-.then(() => // alert("thanks for share")) resultPara.textContent = "shared successfully";
-.catch(error => // alert("error", error)); resultPara.textContent = "Error!";
+.then(() => // alert("thanks for share")) 
+  resultPara.textContent = "shared successfully";
+.catch(error => // alert("error", error)); 
+  resultPara.textContent = "Error!";
 } else {
-// alert('navigator.share not available'); resultPara.textContent = "navigator.share not available";
+// alert('navigator.share not available'); 
+  resultPara.textContent = "navigator.share not available";
 }
 
 })
