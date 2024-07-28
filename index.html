@@ -81,6 +81,7 @@ width:48%;
 <button onclick="selectFile()">PILIH FILE</button>
 <button id="save-btn" disabled>SAVE IMAGE</button>
 <button id="share" type="button" onclick="shareImage(c);">SHARE</button>
+<button id="shared">SHARE</button>
 </p>
 </div>
 <div id="footer">
@@ -118,7 +119,7 @@ document.body.removeChild(link);
 delete link;
 });
 
-document.getElementById("share").addEventListener("click", () => {
+document.getElementById("shared").addEventListener("click", () => {
 console.log("share image");
 
 const dataUrl = c.toDataURL();
