@@ -125,6 +125,8 @@ saveAs(blob, "myIMG.png");
 
 function selectFile() {
 document.getElementById("imgLoader").click();
+document.getElementById("dl").innerHTML = '
+<button id="shared">Share</button>';
 }
 
 let clickButton = document.getElementById("save-btn");
@@ -181,6 +183,3 @@ $("#brightness-value")
 .on('input change', function() {    
 result.text(this.value);
 });
-
-document.getElementById("save-btn").innerHTML = '
-<button id="shared">Share</button>';
