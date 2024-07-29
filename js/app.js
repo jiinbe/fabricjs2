@@ -13,7 +13,7 @@ var wH;
 var hW;
 
 var text = new fabric.Text('', { 
-fontFamily: 'Sans-serif',
+fontFamily: "Diplomata",
 fill: '#fff',
 textAlign: 'center',
 originX: 'center',
