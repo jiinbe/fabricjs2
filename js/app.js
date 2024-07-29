@@ -12,12 +12,6 @@ var origH;
 var wH;
 var hW;
 
-WebFont.load({
-google: {
-families: ["Diplomata"]
-},
-active: function () {
-
 var text = new fabric.Text('', { 
 fontFamily: "Diplomata",
 fill: '#fff',
@@ -28,8 +22,6 @@ top: textY
 });
 
 canvas.add(text);
-}
-});
 
 fabric.Image.fromURL('fabric.png', function(img) {
   
