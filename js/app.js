@@ -28,6 +28,8 @@ top: textY
 });
 
 canvas.add(text);
+}
+});
 
 fabric.Image.fromURL('fabric.png', function(img) {
   
