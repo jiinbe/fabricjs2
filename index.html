@@ -45,6 +45,14 @@ clear: both;
 display:table-cell;
 width:48%;
 }
+#wm {
+background:url(https://www.seekpng.com/png/full/167-1670292_create-a-png-watermark-banner-royalty-free-stock.png) no-repeat; 
+width: 100%;
+height: 100%;
+position: absolute;
+top: 100px;
+left: 100px;
+}
 </style>
 <script src="js/jquery.min.js"></script>
 <script src="js/fabric.min.js"></script>
@@ -56,7 +64,10 @@ width:48%;
 <span class="bg"></span>
 <div class="container">
 <h2 id="example-fabricjs2">Example Fabricjs2</h2>
-<p><canvas id="c" width="525" height="531"></canvas></p>
+<p>
+<canvas id="c" width="525" height="531"></canvas>
+<div id="wm"></div>
+</p>
 <p><input type="file" id="imgLoader" accept="image/*"></p>
 <div class="row">
 <div class="col">
