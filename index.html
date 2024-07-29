@@ -117,11 +117,19 @@ opacity: 0.7;
 <script src="js/bg.js"></script>
 <script src="js/shared.js"></script>
 <script>
+// place a watermark in the upper left hand corner of an image
 watermark(['fabric.png', 'logo.png'])
-  .image(watermark.image.lowerRight(0.5))
-  .then(function (img) {
-    document.getElementById('lower-right').appendChild(img);
+  .blob(function (coffee, logo) {
+    var context = coffee.getContext('2d');
+    context.save();
+
+    context.globalAlpha = alpha;
+    context.drawImage(logo, 10, 10);
+
+    context.restore();
+    return target;
   });
+          
 </script>
 </body>
 </html>
