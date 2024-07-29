@@ -128,6 +128,7 @@ opacity: 0.7;
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
 <script src="js/shared.js"></script>
+<!--
 <script>
 $("document").ready(function() {
 
@@ -177,6 +178,40 @@ $('em').text('~ '+JSON.parse(response).data.link);
 }
 });
 });
+</script>
+-->
+<script>
+function imgur(){
+try {
+var img = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
+} catch(e) {
+var img = canvas.toDataURL().split(',')[1];
+}
+// open the popup in the click handler so it will not be blocked
+var w = window.open();
+w.document.write('Uploading...');
+// upload to imgur using jquery/CORS
+// https://developer.mozilla.org/En/HTTP_access_control
+$.ajax({
+url: 'http://api.imgur.com/2/upload.json',
+type: 'POST',
+data: {
+type: 'base64',
+// get your key here, quick and fast http://imgur.com/register/api_anon
+key: '4ddb1cef2cbd23a',
+name: 'neon.jpg',
+title: 'test title',
+caption: 'test caption',
+image: img
+},
+dataType: 'json'
+}).success(function(data) {
+w.location.href = data['upload']['links']['imgur_page'];
+}).error(function() {
+alert('Could not reach api.imgur.com. Sorry :(');
+w.close();
+});
+}
 </script>
 </body>
 </html>
