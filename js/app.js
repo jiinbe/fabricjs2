@@ -14,7 +14,7 @@ var hW;
 
 WebFont.load({
 google: {
-families: ["Diplomata", "Roboto"]
+families: ["Diplomata"]
 },
 active: function () {
 
