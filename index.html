@@ -117,18 +117,56 @@ opacity: 0.7;
 <script src="js/shared.js"></script>
 <script>
 // place a watermark in the upper left hand corner of an image
-watermark(['fabric.png', 'logo.png'])
-  .blob(function (coffee, logo) {
-    var context = coffee.getContext('2d');
-    context.save();
+var my_watermarked;
 
-    context.globalAlpha = alpha;
-    context.drawImage(logo, 10, 10);
+$(document).ready(function() {
+// La magia aquí
 
-    context.restore();
-    return target;
-  });
-          
+$('<img>')
+.attr('src', proceduralWatermark( 'DESDE', '99', ',99€'))
+.appendTo( $('body') );
+
+my_watermarked = new Watermark();
+
+my_watermarked
+.setPicture('fabric.png', [525, 531])
+.addWatermark('logo.png',
+{
+position: [1,1]
+}
+)
+.addWatermark('')
+.addWatermark('',
+{
+position: [1,1],
+scale: 2.0,
+opacity: 0.5
+}
+)
+.addWatermark(
+proceduralWatermark( 'DESDE', '99', ',99€'),
+{
+position: [1,0]
+}
+)
+.render( function(){
+
+// var resulting_canvas = wm.getCanvases();
+// $.each( resulting_canvas, function(idx, item) {
+//   $('body').append( $(item) );
+// });
+
+var resulting_imgs = my_watermarked.getImgs( 'image/png' );
+$.each( resulting_imgs, function(idx, item) {
+$('body').append( $(item) );
+});
+
+var resulting_data_urls = my_watermarked.getDataUrls( 'image/jpeg', 0.9 );
+console.log(resulting_data_urls);
+
+}); // render callback
+
+});
 </script>
 </body>
 </html>
