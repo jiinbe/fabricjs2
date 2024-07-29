@@ -140,19 +140,6 @@ clickButton.style.opacity = 1;
 }
 });
 
-let webShare = document.getElementById("share");
-let fileInput = document.getElementById("imgLoader");
-fileInput.addEventListener("change", function () {      
-// check if the file is selected or not
-if (fileInput.files.length == 0) {
-webShare.disabled = true;
-webShare.opacity = 0.3;
-} else {
-webShare.disabled = false;
-webShare.style.opacity = 1;
-}
-});
-
 canvas.on({
 'object:moving': function(e) {
 e.target.opacity = 0.5;
