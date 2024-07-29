@@ -12,6 +12,12 @@ var origH;
 var wH;
 var hW;
 
+WebFont.load({
+google: {
+families: ["Diplomata", "Roboto"]
+},
+active: function () {
+
 var text = new fabric.Text('', { 
 fontFamily: "Diplomata",
 fill: '#fff',
