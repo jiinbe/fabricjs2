@@ -164,7 +164,7 @@ scaleImage(perc);
 var max = 200,
 min = 50,
 step = 0.1,
-output = $('#output').text(min);
+output = $('#sv').text(min);
 $("#scale-value")
 .attr({'max': max, 'min':min, 'step': step,'value': String(min)})
 .on('input change', function() {    
@@ -174,7 +174,7 @@ output.text(this.value);
 var max = 255,
 min = -255,
 step = 0.1,
-result = $('#result').text(min);
+result = $('#bv').text(min);
 $("#brightness-value")
 .attr({'max': max, 'min':min, 'step': step,'value': String(min)})
 .on('input change', function() {    
