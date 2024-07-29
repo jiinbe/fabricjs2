@@ -119,7 +119,7 @@ updateCanvasText($(this).val());
 
 $("#save-btn").click(function(){
 $("#c").get(0).toBlob(function(blob){
-saveAs(blob, "myIMG.png");
+saveAs(blob, "image.png");
 });
 });		
 
