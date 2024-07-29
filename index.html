@@ -116,5 +116,12 @@ opacity: 0.7;
 <script src="js/app.js"></script>
 <script src="js/bg.js"></script>
 <script src="js/shared.js"></script>
+<script>
+watermark(['fabric.png', 'logo.png'])
+  .image(watermark.image.lowerRight(0.5))
+  .then(function (img) {
+    document.getElementById('lower-right').appendChild(img);
+  });
+</script>
 </body>
 </html>
