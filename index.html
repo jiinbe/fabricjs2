@@ -141,10 +141,6 @@ formData.append('image', file)
 axios
 .post('https://api.imgur.com/3/image', formData, {
 headers: { Authorization: 'Client-ID 4ddb1cef2cbd23a' },
-data: {
-image: dataUrl.replace(/.*,/, ''),
-type: 'base64'
-},  
 })
 .then((res) => {
 console.log(res)
