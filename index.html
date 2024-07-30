@@ -158,7 +158,7 @@ document.querySelector('#url').addEventListener('click', submit)
 -->
 <script>
 function imgURL() {
-  var img = document.getElementById("avatar").toDataURL("image/png").split(',')[1];
+  var img = document.getElementById("imgLoader").toDataURL("image/png").split(',')[1];
   
   $.ajax({
     url: 'https://api.imgur.com/3/image',
