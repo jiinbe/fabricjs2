@@ -129,5 +129,28 @@ opacity: 0.7;
 <script src="js/bg.js"></script>
 <script src="js/shared.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+<script>
+const submit = () => {
+const file = document.querySelector('#upload-img').files[0]
+if (!file) return false
+
+const formData = new FormData()
+formData.append('image', file)
+
+axios
+.post('https://api.imgur.com/3/image', formData, {
+headers: { Authorization: 'Client-ID 4ddb1cef2cbd23a' },
+})
+.then((res) => {
+console.log(res)
+document.querySelector('#img-url').textContent = res.data.data.link
+})
+.catch((error) => {
+console.log(error)
+})
+}
+
+document.querySelector('#submit-btn').addEventListener('click', submit)
+</script>
 </body>
 </html>
