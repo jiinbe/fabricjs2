@@ -86,7 +86,7 @@ opacity: 0.7;
 <div class="container">
 <h2 id="example-fabricjs2">Example Fabricjs2</h2>
 <p><canvas id="c" width="525" height="531"></canvas></p>
-<p><em></em></p>
+<p><em id="imgurl"></em></p>
 <p>
 <div id="imgur">
 <input class="imgur" type="file" id="imgLoader" accept="image/*">
@@ -118,6 +118,7 @@ opacity: 0.7;
 <button onclick="selectFile()"><i class="fa fa-upload"></i> PILIH FILE</button>
 <button id="save-btn" disabled><i class="fa fa-download"></i> SAVE IMAGE</button>
 <button id="shared"><i class="fa fa-share-alt"></i> SHARE</button>
+<button id="url"><i class="fa fa-share-alt"></i> LIMK IMAGE</button>
 </p>
 </div>
 <div id="footer">
@@ -131,7 +132,7 @@ opacity: 0.7;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 <script>
 const submit = () => {
-const file = document.querySelector('#upload-img').files[0]
+const file = document.querySelector('#imgLoader').files[0]
 if (!file) return false
 
 const formData = new FormData()
@@ -143,14 +144,14 @@ headers: { Authorization: 'Client-ID 4ddb1cef2cbd23a' },
 })
 .then((res) => {
 console.log(res)
-document.querySelector('#img-url').textContent = res.data.data.link
+document.querySelector('#imgurl').textContent = res.data.data.link
 })
 .catch((error) => {
 console.log(error)
 })
 }
 
-document.querySelector('#submit-btn').addEventListener('click', submit)
+document.querySelector('#url').addEventListener('click', submit)
 </script>
 </body>
 </html>
