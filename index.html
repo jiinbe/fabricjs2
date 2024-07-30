@@ -119,6 +119,7 @@ opacity: 0.7;
 <button id="save-btn" disabled><i class="fa fa-download"></i> SAVE IMAGE</button>
 <button id="shared"><i class="fa fa-share-alt"></i> SHARE</button>
 <button id="url"><i class="fa fa-share-alt"></i> LIMK IMAGE</button>
+<button onclick="imgURL()">IMGUR</button>
 </p>
 </div>
 <div id="footer">
@@ -156,13 +157,13 @@ document.querySelector('#url').addEventListener('click', submit)
 </script>
 -->
 <script>
-function upload() {
+function imgURL() {
   var img = document.getElementById("avatar").toDataURL("image/png").split(',')[1];
   
   $.ajax({
     url: 'https://api.imgur.com/3/image',
     type: 'POST',
-    headers: { "Authorization": "Client-ID ***YOUR CLIENT ID***" },
+    headers: { "Authorization": "Client-ID 4ddb1cef2cbd23a" },
     dataType: 'json',
     data: {
       image: img
