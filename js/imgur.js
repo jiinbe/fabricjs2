@@ -1,39 +1,21 @@
-$("document").ready(function() {
-$('input[type=file]').on("change", function() {
-var $files = $(this).get(0).files;
-if ($files.length) {
-// Reject big files
-if ($files[0].size > $(this).data("max-size") * 1024) {
-console.log("Please select a smaller file");
-return false;
+const submit = () => {
+const file = document.querySelector('#imgLoader').files[0]
+if (!file) return false
+
+const formData = new FormData()
+formData.append('image', file)
+
+axios
+.post('https://api.imgur.com/3/image', formData, {
+headers: { Authorization: 'Client-ID 4ddb1cef2cbd23a' },
+})
+.then((res) => {
+console.log(res)
+document.querySelector('#imgurl').textContent = res.data.data.link
+})
+.catch((error) => {
+console.log(error)
+})
 }
-// Begin file upload
-console.log("Uploading file to Imgur..");
-// Replace ctrlq with your own API key
-var apiUrl = 'https://api.imgur.com/3/image';
-var apiKey =  '4ddb1cef2cbd23a'; //key not working
-var settings = {
-async: false,
-crossDomain: true,
-processData: false,
-contentType: false,
-type: 'POST',
-url: apiUrl,
-headers: {
-Authorization: 'Client-ID ' + apiKey,
-Accept: 'application/json'
-},
-mimeType: 'multipart/form-data'
-};
-var formData = new FormData();
-formData.append("image", $files[0]);
-settings.data = formData;
-// Response contains stringified JSON
-// Image URL available at response.data.link
-$.ajax(settings).done(function(response) {
-console.log(JSON.parse(response));
-$('em').text('~ '+JSON.parse(response).data.link);
-});
-}
-});
-});
+
+document.querySelector('#url').addEventListener('click', submit)
