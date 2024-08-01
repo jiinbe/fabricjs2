@@ -73,7 +73,7 @@ height: 100%;
 
 <input type="file" id="imgLoader" accept="image/*">
 <div id="stage-container">
-<canvas id="c" width="1000" height="1000"></canvas>
+<canvas id="c" width="500" height="500"></canvas>
 </div>
 <div id="buttons">
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
@@ -107,7 +107,7 @@ top: textY
 
 canvas.add(text);
 
-fabric.Image.fromURL('pain.png', function(img) {
+fabric.Image.fromURL('filter.png', function(img) {
   
 img.selectable = false;
 img.evented = false;
