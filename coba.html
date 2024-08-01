@@ -71,7 +71,7 @@ height: 100%;
 
 <body>
 
-<input type="file" id="imageInput" accept="image/*">
+<input type="file" id="imgLoader" accept="image/*">
 <div id="stage-container">
 <canvas id="c" width="525" height="531"></canvas>
 </div>
@@ -208,7 +208,7 @@ saveAs(blob, "myIMG.png");
 });		
 
 function selectFile() {
-document.getElementById("imageInput").click();
+document.getElementById("imgLoader").click();
 }
 
 canvas.on({
