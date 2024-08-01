@@ -85,7 +85,7 @@ border: none;
 
 <input type="file" id="imgLoader" accept="image/*">
 <div id="wrap">
-<canvas id="c" width="525" height="525" class="res"></canvas>
+<canvas id="c" width="600" height="600" class="res"></canvas>
 </div>
 <div id="buttons">
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
@@ -119,7 +119,7 @@ top: textY
 
 canvas.add(text);
 
-fabric.Image.fromURL('img.png', function(img) {
+fabric.Image.fromURL('image.png', function(img) {
   
 img.selectable = false;
 img.evented = false;
