@@ -90,7 +90,6 @@ border: none;
 <div id="buttons">
 <button class="btn" onclick="selectFile()">PILIH FILE</button>
 <button class="btn" id="save-btn">SAVE IMAGE</button>
-<input type="range" id="scale-value" value="100" min="50" max="200">
 </div>
 
 <script src="bg.js"></script>
@@ -122,7 +121,7 @@ canvas.add(text);
 
 fabric.Image.fromURL('image.png', function(img) {
   
-img.selectable = false;
+img.selectable = true;
 img.evented = false;
   
 canvas.add(img);
