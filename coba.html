@@ -35,25 +35,16 @@ display: block;
 margin-bottom: 5px;
 }
 
-.btn {
-background: #f7f7f7 none repeat scroll 0 0;
-border-color: #ccc;
+button {
 display: inline-block;
-padding: 6px 12px;
-margin-bottom: 0;
-font-size: 14px;
-font-weight: 400;
-line-height: 1.42857143;
-text-align: center;
-white-space: nowrap;
-vertical-align: middle;
-cursor: pointer;
-background-image: none;
-border: 1px solid transparent;
-border-radius: 4px;
+background: #69c;
+color: #fff;
+padding: 5px 10px;
+outline: none;
+border: none;
 }
 
-.btn:hover{
+button:hover {
 background:#999;
 color:#fff;
 }
@@ -88,8 +79,8 @@ border: none;
 <canvas id="c">Your browser does not support the canvas element.</canvas>
 </div>
 <div id="buttons">
-<button class="btn" onclick="selectFile()">PILIH FILE</button>
-<button class="btn" id="save-btn">SAVE IMAGE</button>
+<button onclick="selectFile()">PILIH FILE</button>
+<button id="save-btn">SAVE IMAGE</button>
 </div>
 
 <script src="js/bg.js"></script>
