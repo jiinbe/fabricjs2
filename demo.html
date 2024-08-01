@@ -79,7 +79,7 @@ box-shadow: 0 1px 0 rgba(27, 31, 36, 0.1);
 button:hover {
 background-color: #d8dee4;
 }
-#c {
+#c, #wrap {
 width: 100%; /*así se hace responsivo, se redimensiona pero se puede pixelear*/
 margin: 0 auto;
 display: block;
@@ -102,7 +102,11 @@ width: auto;
 <span class="bg"></span>
 <main>
 <h1>Example Fabricjs2</h1>
-<p><canvas id="c" width="525" height="531"></canvas></p>
+<p>
+<div id="wrap">
+<canvas id="c" width="525" height="531"></canvas>
+</div>
+</p>
 <p><input type="file" id="imgLoader" accept="image/*"></p>
 <label>Brightness:
 <input type="range" id="brightness-value" value="0" min="-255" max="255">
