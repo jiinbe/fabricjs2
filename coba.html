@@ -74,8 +74,8 @@ height: 100%;
 <input type="file" id="imageInput" accept="image/*">
 <canvas id="c" width="525" height="531"></canvas>
 <div id="buttons">
-<button class="btn" onclick="selectFile()">Pilih File</button>
-<button class="btn dl" id="save" data-process-text="Processing..." data-complete-text="Finish!" autocomplete="off">Download</button>
+<button class="btn" onclick="selectFile()">PILIH FILE</button>
+<button class="btn" id="save-btn">SAVE IMAGE</button>
 </div>
 
 <script>
@@ -86,8 +86,8 @@ var height = window.innerHeight;
   
 const stage = new Konva.Stage({
 container: 'stage-container',
-// width: 300,
-// height: 300,
+// width: 525,
+// height: 531,
 
   width: width,
   height: height,
