@@ -80,7 +80,7 @@ border: none;
 </div>
 <div id="buttons">
 <button onclick="selectFile()">PILIH FILE</button>
-<button id="save-btn">SAVE IMAGE</button>
+<button id="save">SAVE IMAGE</button>
 </div>
 
 <script src="js/bg.js"></script>
@@ -131,7 +131,7 @@ function selectFile() {
   document.getElementById("uploader").click();
 }
 	
-$("#download").click(function(){
+$("#save").click(function(){
 $("#c").get(0).toBlob(function(blob){
 saveAs(blob, "myIMG.png");
 });
