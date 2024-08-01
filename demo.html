@@ -79,6 +79,12 @@ box-shadow: 0 1px 0 rgba(27, 31, 36, 0.1);
 button:hover {
 background-color: #d8dee4;
 }
+#cvs {
+width: 100%; /*así se hace responsivo, se redimensiona pero se puede pixelear*/
+margin: 0 auto;
+display: block;
+background-color: #f0f0f2;
+}
 @media (max-width: 700px) {
 main {
 margin: 0 auto;
@@ -96,7 +102,7 @@ width: auto;
 <span class="bg"></span>
 <main>
 <h1>Example Fabricjs2</h1>
-<p><canvas id="c" width="300" height="300"></canvas></p>
+<p><canvas id="c" width="525" height="531"></canvas></p>
 <p><input type="file" id="imgLoader" accept="image/*"></p>
 <label>Brightness:
 <input type="range" id="brightness-value" value="0" min="-255" max="255">
@@ -141,7 +147,7 @@ top: textY
 
 canvas.add(text);
 
-fabric.Image.fromURL('mask.png', function(img) {
+fabric.Image.fromURL('fabric.png', function(img) {
   
 img.selectable = false;
 img.evented = false;
